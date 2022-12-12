@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            background: #0c111b;
+            position: relative;
+            font-family: roboto,sans-serif;
+
+        }
+        .navbar{
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0 4%;
+            background: #0c111b;
+            z-index: 9;
+            display: flex;
+            align-items: center;
+        }
+      
+        .nav-links{
+            margin-top:10px ;
+            display: flex;
+            list-style: none;
+
+        }
+        .nav-items a{
+            text-decoration: none;
+            margin-left: 20px;
+            text-transform: capitalize;
+            color: #fff;
+            opacity: 0.9;
+        }
+        .navbar>img{
+            cursor: pointer;
+        }
+        #Some-More a{
+            text-decoration: none;
+            margin-left: 0px;
+            text-transform: capitalize;
+            color: black;
+            text-align: center;
+            opacity: 0.9;
+          
+        }
+        #btnseemore{
+            padding-left: 30px;
+            margin-top: 20px;
+        }
+    
+        .right-container{
+            display: block;
+            margin-left: auto;
+
+        }
+        #query{
+            border: none;
+            border-bottom: 1px solid #aaa;
+            background: transparent;
+            outline: none;
+            height: 30px;
+            color: #fff;
+            width: 250px;
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 5s;
+
+
+        }
+
+        #query:focus{
+            width: 400px;
+            border-color: #1f80e0;
+
+        }
+        .sub-btn{
+            background: #1f80e0;
+            height: 30px;
+            padding: 0 20px;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 12px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .login-link{
+            color: #fff;
+            opacity: 0.9;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #slideshow>img{
+        width: 95%;
+        height: 350px;
+        margin-left: 2%;
+        border-radius: 2% 2% 2% 2%;
+        
+    }
+    #slideshow{
+        border-radius: 5%;
+    }
+    #movies{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            justify-content: space-evenly;
+            margin-left: 7%;
+            margin-top: 10%;
+            text-align: center;
+        }
+        #movies>div{
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        #head{
+            text-align: center;
+            margin-top: 20px;
+        }
+        #movies{
+            margin: 20px;
+        }
+
+        #container{
+            border: 0px solid red;
+            margin: auto;
+            text-align: center;
+            font-weight: bold;
+            
+            
+
+        }
+        #loader{
+            margin-left: 45%;
+            height: 400px;
+        }
+        #movies{
+            border: 0px solid blue;
+            display: grid;
+            grid-template-columns: repeat(3,25%);
+            grid-template-rows: repeat(3,400px);
+            gap: 80px;
+            margin: auto;
+            padding-left: 100px;
+            margin-top: 60px;
+        }
+        #basic{
+            height: 20px;
+            width: 40%;
+            /* margin-left: 35%; */
+        }
+        #excitingmovie{
+            color: white;
+            margin-left: 30px;
+        }
+        .brand-logo{
+            cursor: pointer;
+        }
+     
+ 
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img onclick="backtohome()" class="brand-logo" src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg" alt="">
+        <ul class="nav-links">
+        <li class="nav-items"><a href="#">TV</a></li>
+        <li class="nav-items"><a href="#">movies</a></li>
+        <li class="nav-items"><a href="#">sports</a></li>
+        <li class="nav-items"><a href="#">premium</a></li>
+        
+        </ul>
+        <div class="right-container">
+            <!-- <input oninput="debounce(searchMovies,1000)" type="text" id="query" placeholder="Seach Here"> -->
+            <button onclick="gotosub()" class="sub-btn">subscribe</button>
+            <a href="login.html" class="login-link">login</a>
+        </div>
+            </nav>
+   
+    <div id="slideshow">
+
+    </div>
+    <div id="excitingmovie">
+        <h1 >Exciting Movies...</h1>
+    </div>
+    <!-- <div id="basic"></div> -->
+    <div id="basic">
+        <img id="loader" src="https://cdn.dribbble.com/users/865501/screenshots/4399987/2.gif" alt="">
+    </div>
+
+    
+</body>
+</html>
+<script>
+       slideshow = () => {
+    let arr =[`https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_LOTRTROP_HallofHeroes/f35bf8ae-7528-44b1-b65c-015a4c70a082._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_CROW_UN_TOTWalkingDead_AP/e26a88db-3d18-4f09-ac19-ae6b1fdbf6d2._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_Shamshera_Launch/524fe23c-55b8-46b9-a764-67a1d6fc5fc2._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_ImmatureS2_Launch/f0018857-a610-414a-8d7f-e36c3a83a09b._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/pv-target-images/b5f0070b2dd3398e27434ad1aa4b5f9611738c0e078deb73b8537529ba3b942c._UR1920,1080_SX712_FMwebp_.jpg`]
+
+    let i=0;
+    let cont= document.getElementById("slideshow")
+    cont.innerHTML=null
+    let img=document.createElement("img")
+    img.src=arr[0]
+    cont.append(img)
+    i++;
+    setInterval(function(){
+        if(i==4){
+            i=0
+        }
+        img.src=arr[i]
+        cont.append(img)
+        i++
+    },3000)
+
+}
+slideshow()
+    let movies= [
+        {
+            name:'Stree',
+            rating:7,
+            img:"https://www.bing.com/th?id=AMMS_359ca271a55945fa872fff8649b41e9c&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+        {
+            name:'Titenic',
+            rating:10,
+            img: "https://www.bing.com/th?id=AMMS_b607fba7513e7f15eab170aac1e1400d&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+        {
+            name: "Kaithi",
+            rating:8,
+            img:"https://www.bing.com/th?id=AMMS_d80de246c1c29f0d57782b89cad259cc&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+        {
+            name:"Hidden Figures",
+            rating: 5,
+            img:"https://www.bing.com/th?id=AMMS_ca631e9c225f2d13438614ced6a87d34&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+        {
+            name: "Kahani",
+            rating: 8.4,
+            img: "https://www.bing.com/th?id=AMMS_04a66c238184b792af945503406575d3&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+        {
+            name: "Arjun Reddy",
+            rating:8.6,
+            img: "https://www.bing.com/th?id=AMMS_f51540e84a9f8ebcf07976b02eff3b42&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+        {
+            name: "Frozen II",
+            rating:8,
+            img: "https://www.bing.com/th?id=AMMS_6f4e0302cc7e26e2d4ec4acfc1ce820d&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+         {
+            name: "AVENGERS",
+            rating: 10,
+            img: "https://www.bing.com/th?id=AMMS_d70e8ee12fcdde5df391e928dd8497d7&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+        {
+            name: "CHHICHHORE",
+            rating: 9,
+            img: "https://www.bing.com/th?id=AMMS_373cf1863f6c39a3394ae42820cb99db&w=180&h=270&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.34&pid=16.1"
+        },
+
+    ];
+    localStorage.setItem('movies',JSON.stringify(movies));
+    let data= JSON.parse(localStorage.getItem("movies")) || [];
+    function appendMovies(data){
+        let data_div= document.getElementById("basic") || document.getElementById("movies");
+        data_div.innerHTML=null;
+        data_div.id="movies";
+
+        data.forEach(function(el,index){
+            let div= document.createElement("div");
+            div.id= "container"
+
+            let p_name= document.createElement("p");
+            p_name.innerHTML=`Name: ${el.name}`;
+            p_name.style.color="white"
+            p_name.style.marginTop="10px"
+
+
+            let p_rating= document.createElement("p");
+            p_rating.innerHTML= `Imdb-Rating: ${el.rating}`;
+            p_rating.style.color="white"
+            p_rating.style.marginTop="10px"
+
+
+
+            let img= document.createElement("img");
+            img.id= `poster`;
+            img.src= el.img;
+            img.addEventListener("click",function(){
+                localStorage.setItem("trendingparticular",JSON.stringify(data[index]))
+        window.location.href="see.html"
+            })
+            div.append(img,p_name,p_rating);
+            data_div.append(div);
+
+        })
+
+    }
+ 
+    let getme_promise= new Promise(function(resolve,reject){
+        setTimeout(function (){
+            let data= movies;
+
+            if(data!=null){
+                resolve(data);
+            }
+            else{
+                reject("ERR: Server could not you data /:");
+            }
+
+        },5000);
+
+    });
+
+    // loader
+
+    getme_promise
+    .then(function(res){
+        appendMovies(res)
+    })
+
+    .catch(function(err){
+        console.log("err:",err)
+
+    });
+
+    async function main(){
+        try {
+            let res= await getme_promise;
+            appendMovies(res)
+        } catch(error){
+            console.log(err)
+        }
+    }
+
+    main();
+
+    backtohome = () => {
+        window.location.href="index.html"
+    }
+
+     gotosub = () => {
+        window.location.href="signup.html"
+    }
+
+</script>

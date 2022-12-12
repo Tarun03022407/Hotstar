@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            background: #0c111b;
+            position: relative;
+            font-family: roboto,sans-serif;
+
+        }
+        .navbar{
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0 4%;
+            background: #0c111b;
+            z-index: 9;
+            display: flex;
+            align-items: center;
+        }
+      
+        .nav-links{
+            margin-top:10px ;
+            display: flex;
+            list-style: none;
+
+        }
+        .nav-items a{
+            text-decoration: none;
+            margin-left: 20px;
+            text-transform: capitalize;
+            color: #fff;
+            opacity: 0.9;
+        }
+        #Some-More a{
+            text-decoration: none;
+            margin-left: 0px;
+            text-transform: capitalize;
+            color: black;
+            text-align: center;
+            opacity: 0.9;
+          
+        }
+        #Trending a{
+            text-decoration: none;
+            margin-left: 0px;
+            text-transform: capitalize;
+            color: black;
+            text-align: center;
+            opacity: 0.9;
+        }
+        #btnseemore{
+            padding-left: 30px;
+            margin-top: 20px;
+        }
+    
+        .right-container{
+            display: block;
+            margin-left: auto;
+
+        }
+        #query{
+            border: none;
+            border-bottom: 1px solid #aaa;
+            background: transparent;
+            outline: none;
+            height: 30px;
+            color: #fff;
+            width: 250px;
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 5s;
+
+
+        }
+
+        #query:focus{
+            width: 400px;
+            border-color: #1f80e0;
+
+        }
+        .sub-btn{
+            background: #1f80e0;
+            height: 30px;
+            padding: 0 20px;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 12px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .login-link{
+            color: #fff;
+            opacity: 0.9;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #slideshow>img{
+        width: 95%;
+        height: 350px;
+        margin-left: 2%;
+        border-radius: 2% 2% 2% 2%;
+        
+    }
+    #slideshow{
+        border-radius: 5%;
+    }
+    #movies{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            justify-content: space-evenly;
+            margin-left: 7%;
+            margin-top: 10%;
+            text-align: center;
+        }
+        #movies>div{
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        #head{
+            text-align: center;
+            margin-top: 20px;
+        }
+        #movies{
+            margin: 20px;
+        }
+        #btnseemore >button:nth-child(2){
+            margin-left: 80%;
+        }
+        .brand-logo{
+            cursor: pointer;
+        }
+        #image{
+          height: 300px;
+          width: 300px;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <img onclick="backtohome()" class="brand-logo" src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg" alt="">
+        <ul class="nav-links">
+        <li class="nav-items"><a href="#">TV</a></li>
+        <li class="nav-items"><a href="#">movies</a></li>
+        <li class="nav-items"><a href="#">sports</a></li>
+        <li class="nav-items"><a href="#">premium</a></li>
+        
+        </ul>
+        <div class="right-container">
+         
+            <button onclick="gotosub()" class="sub-btn">subscribe</button>
+            <a href="login.html" class="login-link">login</a>
+        </div>
+            </nav>
+    <div id="slideshow">
+
+    </div>
+    <div id="movies">
+
+    </div>
+</body>
+</html>
+
+
+<script>
+         slideshow = () => {
+    let arr =[`https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_LOTRTROP_HallofHeroes/f35bf8ae-7528-44b1-b65c-015a4c70a082._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_CROW_UN_TOTWalkingDead_AP/e26a88db-3d18-4f09-ac19-ae6b1fdbf6d2._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_Shamshera_Launch/524fe23c-55b8-46b9-a764-67a1d6fc5fc2._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_ImmatureS2_Launch/f0018857-a610-414a-8d7f-e36c3a83a09b._UR3000,600_SX3000_FMwebp_.jpeg`,
+    `https://m.media-amazon.com/images/S/pv-target-images/b5f0070b2dd3398e27434ad1aa4b5f9611738c0e078deb73b8537529ba3b942c._UR1920,1080_SX712_FMwebp_.jpg`]
+
+    let i=0;
+    let cont= document.getElementById("slideshow")
+    cont.innerHTML=null
+    let img=document.createElement("img")
+    img.src=arr[0]
+    cont.append(img)
+    i++;
+    setInterval(function(){
+        if(i==4){
+            i=0
+        }
+        img.src=arr[i]
+        cont.append(img)
+        i++
+    },3000)
+
+}
+slideshow()
+
+
+
+let moviedata=JSON.parse(localStorage.getItem('trendingparticular'))
+
+          function data(el,index) {
+            let data_div = document.createElement("div")
+    let p_name=document.createElement("p");
+    p_name.style.color="white"
+    p_name.style.marginTop="10px"
+    p_name.innerHTML=`Name: ${el.title}`;
+
+    let p_rating = document.createElement("p");
+    p_rating.style.color="white"
+    p_rating.style.marginTop="10px"
+
+
+    p_rating.innerHTML=`Year:${el.release_date}`;
+
+    let img = document.createElement("img")
+    
+    img.id = 'poster'
+    img.src =  `https://image.tmdb.org/t/p/original${el.poster_path}`
+    img.setAttribute("id","image")
+
+
+        data_div.append(img,p_name,p_rating)
+
+        document.getElementById("movies").append(data_div)
+        
+
+       
+    }
+    data(moviedata)
+
+    
+ backtohome = () => {
+        window.location.href="index.html"
+    }
+    
+
+     gotosub = () => {
+        window.location.href="signup.html"
+
+    }
+ 
+
+
+</script>
